@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>היסטוריית הטיפולים שלי</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='3D.css') }}">
+    <style>
+        .top-titles {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .top-titles h2 {
+            margin: 0;
+            padding: 0 10px;
+        }
+
+        .back-btn {
+            background-color: #007bff; /* כחול */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3; /* כחול כהה */
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -18,14 +47,11 @@
     <div class="history-container">
         <header>
             <h1>היסטוריית הטיפולים שלי</h1>
-            <div class="top-buttons">
-                <button type="button" class="previous-appointments-btn">תורים קודמים</button>
-                <button type="button" class="next-appointment-btn">תור הבא</button>
+            <div class="top-titles">
+                <h2>תורים קודמים</h2>
+                <h2>תור הבא</h2>
             </div>
         </header>
-        <footer>
-            <button class="back-btn" onclick="goBack()">חזרה</button>
-        </footer>
     </div>
     <div id="updateModal" class="modal hidden">
         <div class="modal-content">
@@ -36,10 +62,34 @@
                 <label for="updateTime">שעה חדשה</label>
                 <input type="time" id="updateTime" required>
                 <button type="submit" class="confirm-btn">עדכון</button>
-                <button type="button" class="back-btn" onclick="goBack()">חזרה</button>
             </form>
+            <button class="back-btn" onclick="goBack()">חזרה</button> <!-- כפתור החזרה -->
         </div>
     </div>
-    <script src="{{ url_for('static', filename='3D.js') }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const updateForm = document.getElementById("updateForm");
+
+            updateForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                // שליפת הנתונים מהשדות
+                const newDate = document.getElementById("updateDate").value;
+                const newTime = document.getElementById("updateTime").value;
+
+                if (newDate && newTime) {
+                    // הצגת הודעת הצלחה
+                    alert("התור התעדכן בהצלחה!");
+
+                    // הסתרת המודל
+                    document.getElementById("updateModal").classList.add("hidden");
+                }
+            });
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>

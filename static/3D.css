@@ -154,26 +154,7 @@ body {
     color: white;
 }
 
-/* עיצוב דף יצירת חשבון */
-.signup-container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 50px;
-    width: 90%;
-    max-width: 450px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
 
-.signup-container h1 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-    color: #00509e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
 
 /* עיצוב דף אזור אישי */
 .personal-area-container {
@@ -222,16 +203,6 @@ header h1 {
     transform: scale(1.05);
 }
 
-/* עיצוב דף קביעת תור */
-.appointment-container {
-    text-align: center;
-    width: 90%;
-    max-width: 300px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 50px;
-}
 
 header h1 {
     font-size: 2rem;
@@ -568,4 +539,120 @@ footer {
     .nav-links li {
         border-bottom: none; /* מסיר את הקווים המפרידים */
     }
+}
+
+
+
+
+/* מיושרים כפתורי התפריט והלוגין למרכז */
+.menu-btn, .login-btn, .google-login, .confirm-btn, .back-btn {
+    width: 90%; /* הקצאת רוחב קבוע */
+    margin: 10px auto; /* יישור אוטומטי למרכז */
+    display: block; /* הופך את הכפתור לבלוק לצורך יישור */
+}
+
+/* עיצוב נוסף להבטחת גודל ותצוגה עקביים */
+.menu-btn, .login-btn, .google-login {
+    padding: 15px 0; /* פדינג אחיד */
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* הוספת מעברים חלקים ואנימציה בעת לחיצה */
+.menu-btn:hover, .login-btn:hover, .google-login:hover, .confirm-btn:hover, .back-btn:hover {
+    transform: scale(1.05); /* הגדלה קלה בעת ריחוף */
+    opacity: 0.9; /* שינוי שקיפות */
+}
+
+/* סגנון נפרד לכפתורי Google ולכפתורי קביעת תור */
+.google-login, .confirm-btn {
+    border-color: #f4b400; /* צבע מסגרת עבור Google */
+    color: #f4b400; /* צבע טקסט */
+}
+
+.confirm-btn, .back-btn {
+    background-color: #007acc; /* רקע כחול */
+    color: white; /* טקסט לבן */
+}
+
+.back-btn {
+    border: 2px solid #007acc; /* מסגרת עבור כפתור חזרה */
+}
+
+/* עיצוב דינמי עבור גדלים שונים של מסכים */
+@media (max-width: 768px) {
+    .menu-btn, .login-btn, .google-login, .confirm-btn, .back-btn {
+        width: 80%; /* רוחב מותאם למסכים קטנים יותר */
+    }
+}
+
+.appointment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.appointment-container .input-group {
+    width: 100%; /* רוחב אחיד */
+    margin: 10px 0; /* מרווח אחיד */
+}
+
+.appointment-container .input-group input,
+.appointment-container .input-group select {
+    width: 100%; /* ממלא את המרחב הזמין */
+    padding: 12px; /* גובה אחיד */
+    margin: 5px 0; /* מרווח עליון ותחתון אחיד */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* מבטיח שה-padding וה-border נכללים ברוחב */
+}
+
+.appointment-container .input-group label {
+    width: 100%; /* ממלא את כל הרוחב */
+    text-align: left; /* מיישר טקסט לשמאל */
+    margin-bottom: 5px; /* מרווח תחת התווית */
+    font-size: 1rem;
+    color: #003366;
+}
+
+.contact-container .send-btn {
+    background-color: #003366; /* ירוק */
+    color: white;
+    width: 50%; /* רוחב מתואם */
+    padding: 15px; /* פדינג נוח */
+    font-size: 1.2rem;
+    border-radius: 8px; /* עיגול קצוות */
+    margin: 20px auto; /* מרכז הכפתור באופן אוטומטי */
+    display: block; /* הצג כבלוק */
+    transition: background-color 0.3s; /* אנימציית מעבר צבע */
+}
+
+.contact-container .send-btn:hover {
+    background-color: #003366; /* ירוק כהה בריחוף */
+}
+
+
+.signup-container .signup-btn {
+    background-color: #007BFF; /* כחול בהיר */
+    color: white;
+    width: 50%; /* רוחב הכפתור */
+    padding: 15px; /* פדינג נוח */
+    font-size: 1.2rem;
+    border-radius: 8px; /* פינות מעוגלות */
+    margin: 20px auto; /* מרכז אוטומטי */
+    display: block; /* הצג כבלוק */
+    transition: background-color 0.3s; /* אנימציית מעבר צבע */
+}
+
+.signup-container .signup-btn:hover {
+    background-color: #00509e; /* כחול כהה בריחוף */
 }

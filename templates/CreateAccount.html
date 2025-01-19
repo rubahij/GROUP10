@@ -66,7 +66,7 @@
 
                 // בדיקת גיל
                 const age = parseInt(ageInput.value.trim());
-                if (isNaN(age) || age < 18 || age > 120) {
+                if (isNaN(age) || age < 1 || age > 120) {
                     e.preventDefault(); // מונע את שליחת הטופס
                     ageError.style.display = 'block';
                     isValid = false;
